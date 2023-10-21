@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { SharedService } from 'src/app/shared/shared.service';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'users-crud';
+
+  loading = false;
+
+  constructor(private sharedService:SharedService) {}
+
+  ngOnInit() {
+    this.sharedService.loading$.subscribe(value=> this.loading = value);
+  }
 }

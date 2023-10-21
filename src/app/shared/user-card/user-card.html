@@ -1,0 +1,22 @@
+<!-- <pre>{{userData | json }}</pre> -->
+
+<div class="card mb-4 user-card text-center">
+
+  <span class="user-id"> {{ userData.id }} </span>
+
+  <div class="image-wrapper">
+    <img [src]='userData.avatar' class="user-image img-fluid" alt="">
+  </div>
+
+  <div class="details wrapper mb-2">
+    <p class="user-name lead m-0"> {{ userData.first_name }} {{ userData.last_name }} </p>
+    <p class="user-email m-0"> {{ userData.email }}</p>
+  </div> <!-- details -->
+
+  <div class="actions-wrapper">
+    <a [routerLink]="['/default/user-details', userData.id ]" class="btn btn-info"> <i class="fa fa-eye"></i> </a>
+    <a [routerLink]="['/default/user-update', userData.id ]" class="btn btn-success"> <i class="fa fa-pen"></i> </a>
+    <a (click)='openRemoveUserModal()' class="btn btn-danger"> <i class="fa fa-times"></i> </a>
+  </div><!-- actions-wrapper -->
+
+</div>

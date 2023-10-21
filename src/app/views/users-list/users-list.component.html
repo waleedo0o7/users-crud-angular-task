@@ -1,0 +1,26 @@
+<div class="page-wrapper">
+
+  <div class="page-header-wrapper mb-3">
+    <div class="container">
+      <h2 class="text-center"> All Users </h2>
+    </div> <!-- container -->
+  </div><!-- page-header-wrapper -->
+
+  <div class="all-user-wrapper">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6" *ngFor="let user of userList  | paginate: { itemsPerPage: 6, currentPage: pagination.currentPage ,  totalItems: pagination.totalItems }; index as i ">
+          <user-card [userData]='user'></user-card>
+        </div> <!-- col-md-4 -->
+
+      </div> <!-- row -->
+
+      <div class="pagination-wrapper">
+        <pagination-controls (pageChange)="getAllUsers(pagination.currentPage = $event)" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+      </div>
+
+    </div> <!-- container -->
+  </div> <!--  all-users-wrapper  -->
+
+</div> <!-- page-wrapper -->

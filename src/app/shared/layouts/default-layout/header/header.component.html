@@ -1,0 +1,23 @@
+<header class="header-wrapper mb-4">
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-md-6">
+        <div class="title-wrapper">
+          <h4 class="m-0"> Welcome To Users Crud </h4>
+        </div><!-- title-wrapper -->
+      </div> <!-- col-md-6 -->
+
+      <div class="col-md-6">
+        <div class="buttons-wrapper">
+          <a routerLink="/default/users" class="btn btn-outline-primary me-2"> All users </a>
+          <a routerLink="/default/user-create" class="btn btn-outline-primary me-2"> Create </a>
+          <a (click)="logOut()" class="btn btn-primary"> Logout </a>
+        </div>
+      </div> <!-- col-md-6 -->
+
+    </div> <!-- row -->
+
+  </div>
+</header> <!-- header-wrapper -->

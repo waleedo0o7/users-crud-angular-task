@@ -1,0 +1,56 @@
+<div class="page-wrapper">
+
+  <div class="page-header-wrapper mb-3">
+    <div class="container">
+      <h2 class="text-center"> Create New User </h2>
+    </div> <!-- container -->
+  </div><!-- page-header-wrapper -->
+
+  <div class="user-details-wrapper">
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+      <div class="row p-3">
+
+        <div class="col-md-4">
+          <div class="image-wrapper">
+            <img src='assets/images/user-default.png' class="user-image img-fluid w-100" alt="">
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="details-wrapper">
+
+            <div class="form-group relative mb-2">
+              <label> first Name </label>
+              <input type="text" class="form-control" formControlName="firstName" placeholder="">
+              <span class="error-message-input" *ngIf="userForm.controls.firstName.hasError('required')"> required </span>
+              <span class="error-message-input" *ngIf="userForm.controls.firstName.hasError('maxlength')"> first name must be less 10 characters </span>
+            </div>
+
+            <div class="form-group relative mb-2">
+              <label>last name </label>
+              <input type="text" class="form-control" formControlName="lastName" placeholder="">
+              <span class="error-message-input" *ngIf="userForm.controls.lastName.hasError('required')"> required </span>
+              <span class="error-message-input" *ngIf="userForm.controls.lastName.hasError('maxlength')"> last name must be less 10 characters </span>
+            </div>
+
+            <div class="form-group relative mb-2">
+              <label> email </label>
+              <input type="email" class="form-control" formControlName="email" placeholder="">
+              <span class="error-message-input" *ngIf="userForm.controls.email.hasError('required')"> required </span>
+              <span class="error-message-input" *ngIf="userForm.controls.email.hasError('maxlength')"> email must be less 50 characters </span>
+            </div>
+
+            <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid"> Submit </button>
+
+          </div>
+        </div>
+
+      </div> <!-- row -->
+
+    </form> <!-- login-form -->
+
+  </div> <!-- user-details-wrapper -->
+
+</div> <!-- page-wrapper -->

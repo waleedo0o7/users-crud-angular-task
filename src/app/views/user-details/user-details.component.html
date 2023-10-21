@@ -1,0 +1,31 @@
+<div class="page-wrapper">
+
+  <div class="page-header-wrapper mb-3">
+    <div class="container">
+      <h2 class="text-center"> View {{userDetails?.first_name}}  {{userDetails?.last_name}}  Details</h2>
+    </div> <!-- container -->
+  </div><!-- page-header-wrapper -->
+
+  <div class="user-details-wrapper">
+
+    <div class="row">
+
+      <div class="col-md-4">
+        <div class="image-wrapper">
+          <img [src]='userDetails?.avatar || "assets/images/user-default.png"' class="user-image img-fluid w-100" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="details-wrapper">
+          <p> <span class="text-bold text-uppercase"> id : </span> {{userDetails?.id}} </p>
+          <p> <span class="text-bold text-uppercase"> first name : </span> {{userDetails?.first_name}} </p>
+          <p> <span class="text-bold text-uppercase"> last name : </span> {{userDetails?.last_name}} </p>
+          <p> <span class="text-bold text-uppercase"> Email : </span> {{userDetails?.email}} </p>
+        </div>
+      </div>
+
+    </div> <!-- row -->
+  </div> <!-- user-details-wrapper -->
+
+</div> <!-- page-wrapper -->

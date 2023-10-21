@@ -1,0 +1,23 @@
+<div class="login-page-wrapper">
+
+  <div class="login-form-wrapper">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group mb-3">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Submit</button>
+
+    </form> <!-- login-form -->
+
+  </div><!-- login-form-wrapper -->
+
+</div> <!-- login-page-wrapper -->
