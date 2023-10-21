@@ -20,7 +20,7 @@ const routes: Routes = [
     component: AuthLayoutComponent,
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
+      { path: 'login', component: LoginComponent, title:'Login' },
     ],
   },
 
@@ -29,10 +29,10 @@ const routes: Routes = [
     component: DefaultLayoutComponent,
     children: [
       { path: '', redirectTo: 'users', pathMatch: 'full' },
-      { path: 'users', component: UsersComponent },
-      { path: 'user-create', component: UserCreateComponent },
-      { path: 'user-details/:id', component: UserDetailsComponent },
-      { path: 'user-update/:id', component: UserUpdateComponent },
+      { path: 'users', component: UsersComponent , title:'All users' },
+      { path: 'user-create', component: UserCreateComponent , title:'Create User' },
+      { path: 'user-details/:id', component: UserDetailsComponent , title:'Show user details' },
+      { path: 'user-update/:id', component: UserUpdateComponent , title:'Update user' },
     ],
   },
 ];
