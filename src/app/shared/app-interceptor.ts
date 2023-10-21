@@ -21,7 +21,7 @@ export class AppInterceptor implements HttpInterceptor {
     this.sharedService.loading$.next(true);
     let modifiedRequest: any;
 
-    if (request.url === 'https://reqres.in/api/login') {
+    if (request.url === `${this.sharedService.apiURL}login`) {
       modifiedRequest = request.clone();
     } else {
       const accessToken = localStorage.getItem('authToken');

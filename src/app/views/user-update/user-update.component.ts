@@ -32,7 +32,6 @@ export class UserUpdateComponent {
     this.subscription.add(this.sharedService.getUserById(+id).subscribe((e) => {
 
       this.userDetails = e.data
-
       this.updateUserForm.controls['firstName'].setValue(e.data.first_name);
       this.updateUserForm.controls['lastName'].setValue(e.data.last_name);
       this.updateUserForm.controls['email'].setValue(e.data.email);
@@ -48,17 +47,15 @@ export class UserUpdateComponent {
 
     this.subscription.add(this.sharedService.updateUser(id!,firstName!,lastName!,email!).subscribe(
       (e) => {
-        this.sharedService.showToastr(
-          'success',
-          `user ${firstName} updated successful`
-        );
+        this.sharedService.showToastr('success',`user ${firstName} updated successful`);
+        this.router.navigate(['/default/users']);
       },
       (error) => {
         this.sharedService.showToastr('error', 'update user failed');
       }
     ));
 
-    this.router.navigate(['/default/users']);
+
 
   }
 

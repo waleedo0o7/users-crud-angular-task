@@ -1,8 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Subject, map, Observable } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +11,8 @@ import { Subject, map, Observable } from 'rxjs';
 export class SharedService {
 
   loading$ = new Subject<boolean>();
+
+  apiURL = 'https://reqres.in/api/'
 
   constructor(private http: HttpClient, private router: Router,private toastr: ToastrService) {}
 
@@ -28,15 +30,15 @@ export class SharedService {
   }
 
   getUsers(page = 1):Observable<any> {
-    return this.http.get(`https://reqres.in/api/users?page=${page}`);
+    return this.http.get(`${this.apiURL}users?page=${page}`);
   }
 
   getUserById(id:number):Observable<any> {
-    return this.http.get(`https://reqres.in/api/users/${id}`);
+    return this.http.get(`${this.apiURL}users/${id}`);
   }
 
   updateUser(id: string,firstName:string,lastName:string,email:string) {
-    return this.http.put(`https://reqres.in/api/users/${id}`, {
+    return this.http.put(`${this.apiURL}users/${id}`, {
       first_name: firstName,
       last_name: lastName,
       email : email
@@ -44,14 +46,14 @@ export class SharedService {
   }
 
   login(userEmail: string, userPassword: string):Observable<any> {
-    return this.http.post('https://reqres.in/api/login', {
+    return this.http.post(`${this.apiURL}login`, {
       email: userEmail,
       password: userPassword,
     });
   }
 
   createUser(firstName:string,lastName:string,email:string):Observable<any> {
-    return this.http.post(`https://reqres.in/api/users`, {
+    return this.http.post(`${this.apiURL}users`, {
       name: firstName,
       last_name: lastName,
       email : email
@@ -59,7 +61,7 @@ export class SharedService {
   }
 
   removeUser(id:string){
-    return this.http.delete(`https://reqres.in/api/users/${id}`);
+    return this.http.delete(`${this.apiURL}users/${id}`);
   }
 
   logOut() {
